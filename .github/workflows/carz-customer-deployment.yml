@@ -6,7 +6,7 @@ on:
       ref:
         description: "Ref"
         required: true
-        default: v0.0.2-dev+1
+        default: v2.0.4-dev+42
 
 defaults:
   run:
@@ -35,6 +35,7 @@ jobs:
 
       - name: Generate message
         run: |
+          echo $GITHUB_REF_NAME
           source .github/scripts/utils.sh
           echo "VALUE=$(get_message_information)" >> "$GITHUB_OUTPUT"
         id: message_information
