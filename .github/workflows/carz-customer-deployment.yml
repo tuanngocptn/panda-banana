@@ -48,10 +48,10 @@ jobs:
       - name: Change version and build number
         run: bash .github/scripts/change_version_and_build_number.sh
 
-      - name: Setup Node 18.7.1
+      - name: Setup Node 18
         uses: actions/setup-node@v4
         with:
-          node-version: 18.7.1
+          node-version: 18
 
       - name: Setup yarn
         uses: mskelton/setup-yarn@v1
