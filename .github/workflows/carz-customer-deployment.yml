@@ -14,7 +14,6 @@ defaults:
 
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-  GITHUB_REF_NAME: ${{ inputs.ref }}
   RCT_NO_LAUNCH_PACKAGER: 1
   TELEGRAM_GROUP_ID: -1001924297028
   TELEGRAM_TOPIC_ID: 148
@@ -35,7 +34,7 @@ jobs:
 
       - name: Generate message
         run: |
-          echo $GITHUB_REF_NAME
+          GITHUB_REF_NAME=${{ inputs.ref }}
           source .github/scripts/utils.sh
           echo "VALUE=$(get_message_information)" >> "$GITHUB_OUTPUT"
         id: message_information
