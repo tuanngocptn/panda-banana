@@ -5,6 +5,8 @@ on:
     inputs:
       tag:
         description: "Tags"
+        required: true
+        default: v0.0.2-dev+1
 
 defaults:
   run:
@@ -28,3 +30,16 @@ jobs:
         with:
           repository: "LibertyCarz/rn-carz-customer"
           token: ${{ secrets.GH_PAT }}
+          ref: ${{ inputs.tag }}
+
+      - name: Generate message
+        run: |
+          source .github/scripts/utils.sh
+          echo "VALUE=$(get_message_information)" >> "$GITHUB_OUTPUT"
+        id: message_information
+
+      - name: send telegram message
+        uses: PacificPromise/macos-telegram-action@main
+        with:
+          type: topic
+          message: "Start APK: ${{ steps.message_information.outputs.VALUE }}"
