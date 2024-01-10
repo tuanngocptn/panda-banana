@@ -48,10 +48,10 @@ jobs:
       - name: Change version and build number
         run: bash .github/scripts/change_version_and_build_number.sh
 
-      - name: Setup Node 18.7,1
+      - name: Setup Node 18.7.1
         uses: actions/setup-node@v4
         with:
-          node-version: 18.7,1
+          node-version: 18.7.1
 
       - name: Setup yarn
         uses: mskelton/setup-yarn@v1
@@ -69,4 +69,4 @@ jobs:
         uses: android-actions/setup-android@v2
 
       - name: Install libs
-        run: source ~/.nvm/nvm.sh && nvm use && yarn install
+        run: yarn install
