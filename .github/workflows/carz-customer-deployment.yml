@@ -3,8 +3,8 @@ name: Carz Customer Deployment
 on:
   workflow_dispatch:
     inputs:
-      tag:
-        description: "Tags"
+      ref:
+        description: "Ref"
         required: true
         default: v0.0.2-dev+1
 
@@ -14,6 +14,7 @@ defaults:
 
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  GITHUB_REF_NAME: ${{ inputs.ref }}
   RCT_NO_LAUNCH_PACKAGER: 1
   TELEGRAM_GROUP_ID: -1001924297028
   TELEGRAM_TOPIC_ID: 148
@@ -30,7 +31,7 @@ jobs:
         with:
           repository: "LibertyCarz/rn-carz-customer"
           token: ${{ secrets.GH_PAT }}
-          ref: ${{ inputs.tag }}
+          ref: ${{ inputs.ref }}
 
       - name: Generate message
         run: |
