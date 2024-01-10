@@ -53,9 +53,6 @@ jobs:
         with:
           node-version: 18
 
-      - name: Setup yarn
-        uses: mskelton/setup-yarn@v1
-
       - name: Setup gem
         run: bundle install
 
@@ -68,5 +65,7 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - name: Install libs
-        run: yarn install
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
