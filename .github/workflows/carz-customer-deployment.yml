@@ -1,4 +1,4 @@
-name: Customer Deployment
+name: Carz Customer Deployment
 
 on:
   workflow_dispatch:
