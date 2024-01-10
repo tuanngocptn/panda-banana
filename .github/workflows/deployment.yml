@@ -1,0 +1,30 @@
+name: Customer Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Action"
+
+defaults:
+  run:
+    shell: bash -leo pipefail {0}
+
+env:
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  RCT_NO_LAUNCH_PACKAGER: 1
+  TELEGRAM_GROUP_ID: -1001924297028
+  TELEGRAM_TOPIC_ID: 148
+  LC_ALL: en_US.UTF-8
+  LANG: en_US.UTF-8
+
+jobs:
+  deploy-apk:
+    name: Deploy apk
+    runs-on: macos-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+        with:
+          repository: "LibertyCarz/rn-carz-customer"
+          token: ${{ secrets.GH_PAT }}
