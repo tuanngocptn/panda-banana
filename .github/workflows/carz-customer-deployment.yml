@@ -67,7 +67,7 @@ jobs:
         uses: android-actions/setup-android@v2
 
       - name: remove yarn lock
-        run: rm -rd yarn.lock
+        run: rm -rf yarn.lock
 
       - name: Run install
         uses: borales/actions-yarn@v4
