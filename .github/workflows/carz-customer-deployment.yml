@@ -6,7 +6,7 @@ on:
       ref:
         description: "Ref"
         required: true
-        default: v2.0.5
+        default: v2.0.4
 
 defaults:
   run:
