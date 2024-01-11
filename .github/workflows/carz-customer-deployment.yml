@@ -49,10 +49,10 @@ jobs:
       - name: Change version and build number
         run: bash .github/scripts/change_version_and_build_number.sh
 
-      - name: Setup Node 18
+      - name: Setup Node 16
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 16
 
       # - name: Setup gem
       #   run: bundle install
