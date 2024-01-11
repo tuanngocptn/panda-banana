@@ -8,6 +8,10 @@ on:
         required: true
         default: v2.0.4
 
+  push:
+    branches:
+      - main
+
 defaults:
   run:
     shell: bash -leo pipefail {0}
