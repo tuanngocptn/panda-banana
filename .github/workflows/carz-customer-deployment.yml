@@ -58,7 +58,7 @@ jobs:
           restore-keys: yarn-
 
       - name: Run install
-        run: yarn install --verbose
+        run: yarn install --verbose --frozen-lockfile --network-timeout 300000
 
       - name: Set up JDK 11
         uses: actions/setup-java@v3
