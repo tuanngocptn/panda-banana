@@ -9,6 +9,5 @@ jobs:
     container:
       image: centos:7
     steps:
-      - uses: actions/checkout@v4
       - run: echo "hello, world"
       - run: cat /etc/os-release
